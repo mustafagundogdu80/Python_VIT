@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Mustafa",
+        "surname": "Gundogdu",
+        "email": "mustafagundogdu@hotmail.com",
+        "phone": "0687315751",
+        "address": "Haagse Schouwweg 8 Leiden"
+    },
+    {
+        "id": 2,
+        "name": "Kahraman",
+        "surname": "Dalgıç",
+        "email": "kahramandalgıc@gmail.com",
+        "phone": "068741054",
+        "address": "straat 45 Amsterdam"
+    },
+    {
+        "id": 3,
+        "name": "Yasin",
+        "surname": "Sinan",
+        "email": "ysinan@gmail.com",
+        "phone": "068745654",
+        "address": "Leidendorp"
+    },
+    {
+        "id": 5,
+        "name": "falan",
+        "surname": "filan",
+        "email": "falan@hotmail.com",
+        "phone": "067892145",
+        "address": "Rotterdam"
+    },
+    {
+        "id": 6,
+        "name": "Deneme",
+        "surname": "ddd",
+        "email": "afasdf ",
+        "phone": "0254521",
+        "address": "bir yer"
+    }
+]

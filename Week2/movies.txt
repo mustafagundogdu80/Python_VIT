@@ -1,0 +1,30 @@
+[
+    {
+        "Name": "The Matrix",
+        "Director": "Lana Wachowski, Lilly Wachowski",
+        "Release Year": "1999",
+        "Genre": "Science Fiction",
+        "Scriptwriter": "Lana Wachowski, Lilly Wachowski"
+    },
+    {
+        "Name": "The Godfather",
+        "Director": "Francis Ford Coppola",
+        "Release Year": "1973",
+        "Genre": "Mafia, drama",
+        "Scriptwriter": "Mario Puzo"
+    },
+    {
+        "Name": "The Shawshank Redemption",
+        "Director": "Frank Darabont",
+        "Release Year": "1994",
+        "Genre": "Drama, Mystery",
+        "Scriptwriter": "Stephen King"
+    },
+    {
+        "Name": "The Intern",
+        "Director": "Nancy Meyers",
+        "Release Year": "2015",
+        "Genre": "Comedy",
+        "Scriptwriter": "Nancy Meyers"
+    }
+]
