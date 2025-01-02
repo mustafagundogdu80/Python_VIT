@@ -20,23 +20,15 @@
         "name": "Yasin",
         "surname": "Sinan",
         "email": "ysinan@gmail.com",
-        "phone": "068745654",
+        "phone": "0689358964",
         "address": "Leidendorp"
     },
     {
-        "id": 5,
-        "name": "falan",
-        "surname": "filan",
-        "email": "falan@hotmail.com",
-        "phone": "067892145",
-        "address": "Rotterdam"
-    },
-    {
-        "id": 6,
-        "name": "Deneme",
-        "surname": "ddd",
-        "email": "afasdf ",
-        "phone": "0254521",
-        "address": "bir yer"
+        "id": 4,
+        "name": "Celal",
+        "surname": "Kocak",
+        "email": "celal@celal.com",
+        "phone": "0685412879",
+        "address": "Leidendorp"
     }
 ]
