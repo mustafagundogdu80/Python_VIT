@@ -10,10 +10,10 @@
     {
         "id": 2,
         "name": "Kahraman",
-        "surname": "Dalgıç",
-        "email": "kahramandalgıc@gmail.com",
-        "phone": "068741054",
-        "address": "straat 45 Amsterdam"
+        "surname": "Dal",
+        "email": "kahramandal@gmail.com",
+        "phone": "0615985247",
+        "address": "Straatweg 44 Amsterdam"
     },
     {
         "id": 3,
@@ -30,5 +30,13 @@
         "email": "celal@celal.com",
         "phone": "0685412879",
         "address": "Leidendorp"
+    },
+    {
+        "id": 5,
+        "name": "Cihan",
+        "surname": "Yazar",
+        "email": "jihanyazar@gmail.com",
+        "phone": "0687456874",
+        "address": "ruimenstraat 6 Oogsweg"
     }
 ]
