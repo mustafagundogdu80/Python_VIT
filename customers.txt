@@ -38,5 +38,13 @@
         "email": "jihanyazar@gmail.com",
         "phone": "0687456874",
         "address": "ruimenstraat 6 Oogsweg"
+    },
+    {
+        "id": 6,
+        "name": "Shraz",
+        "surname": "Driynk",
+        "email": "shrazd@gmail.com",
+        "phone": "0687545412",
+        "address": "leylaanstraat 45 Leiden"
     }
 ]

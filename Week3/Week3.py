@@ -78,9 +78,9 @@ def create_grid(tasks, field_names, field_widths, grid_name):
             if field_counter == 0:
                 grid_middle_row = separator_column + str(task["id"]).center(field_widths[field_counter]," ")
                 if field_counter == len(field_widths)-1:
-                    grid_middle_row += " "+separator_sub_column+" "
-                else:
                     grid_middle_row += " "+separator_column+" "
+                else:
+                    grid_middle_row += " "+separator_sub_column+" "
             elif field_counter == len(field_widths)-1:
                 grid_middle_row += task[field_name].center(field_widths[field_counter]," ")+separator_column
             else:
@@ -132,7 +132,7 @@ def add_task(tasks, tasks_file):
     tasks.append(task)
     save_file(tasks_file, tasks)
     print(f"Task {task_name} added successfully.")
-    return tasks
+    return True
 
 def complete_task(tasks, task_id, tasks_file):
     """
@@ -142,38 +142,42 @@ def complete_task(tasks, task_id, tasks_file):
         if task["id"] == task_id:
             task["status"] = "Completed"
             save_file(tasks_file, tasks)
-            return tasks
-    return None
+            print(f"Task {task["name"]} completed successfully.")
+            return True
+    return False
 
 def delete_task(tasks, task_id, tasks_file):
     """
     Deletes the task with the given id.
     """
+    finding_task = False
     for task in tasks:
-        if task["id"] == task_id:
-            task["status"] = "Deleted"
-            save_file(tasks_file, tasks)
-            return tasks
-    return None
+        if task["id"] != None:
+            if task["id"] == task_id:
+                task["id"] = None
+                task["status"] = "Deleted"
+                finding_task = True
+            elif task["id"] > task_id:
+                task["id"] -= 1
+    if finding_task:
+        save_file(tasks_file, tasks)
+    else:
+        print("Task not found.")
+    return finding_task
 
-def list_completed_tasks(tasks):    
-    """
-    Lists all completed tasks.
-    """
-    completed_tasks = [task for task in tasks if task["status"] == "Completed"]
-    list_all_tasks(completed_tasks)
-
-def list_all_tasks(tasks):
+def list_tasks(tasks, statatus = ["Pending"]):
     """
     Lists all tasks with their status.
     """
-    grid = create_grid(tasks, ["id", "name", "status"], [5, 30, 12], "Tasks List")
+    listed_tasks = [task for task in tasks if task["status"] in statatus]
+    grid = create_grid(listed_tasks, ["id", "name", "status"], [5, 50, 12], "Tasks List")
     for row in grid:
         print(row)
+    return len(listed_tasks)
         
 
 if __name__ == "__main__":
-    tasks_file = "tasks.txt"
+    tasks_file = "tasks.json"
     tasks = load_file(tasks_file)
     incorrectly_entered = False
     exit_confirmation = True
@@ -192,7 +196,9 @@ if __name__ == "__main__":
                 "╚════════════════════════════════════════════════════════════╝ "
                 ]
     while exit_confirmation:
-        os.system("cls" if os.name == "nt" else "clear")   
+        os.system("cls" if os.name == "nt" else "clear")
+        if tasks :
+            list_tasks(tasks)   
         for i in main_menu:
             print(i)
         if incorrectly_entered:
@@ -202,25 +208,96 @@ if __name__ == "__main__":
         choice = input("Enter your choice: ")
         if choice in ["q", "Q", "exit", "EXIT", "6"]:
             exit_confirmation = False
-            print("Exiting the program.")
         elif choice == "1":
-            add_task(tasks, tasks_file)
-            list_all_tasks(tasks)
+            if not add_task(tasks, tasks_file):
+                print("Error: Task could not be added.")
             input("Press Enter to continue...")
         elif choice == "2":
             task_id = int(input("Enter the task id: "))
-            tasks=complete_task(tasks, task_id, tasks_file)
-            list_all_tasks(tasks)
+            if not complete_task(tasks, task_id, tasks_file):
+                print("Error: Task could not be completed.")
             input("Press Enter to continue...")
         elif choice == "3":
             task_id = int(input("Enter the task id: "))
-            tasks= delete_task(tasks, task_id, tasks_file)
-            list_all_tasks(tasks)
+            if not delete_task(tasks, task_id, tasks_file):
+                print("Error: Task could not be deleted.")
             input("Press Enter to continue...")
         elif choice == "4":
-            completed_tasks = list_completed_tasks(tasks)
-            list_all_tasks(completed_tasks)
-            input("Press Enter to continue...")
+            tasks_count = list_tasks(tasks, ["Completed"])
+            input(f"{tasks_count} tasks completed. Press Enter to continue...")
         elif choice == "5":
-            list_all_tasks(tasks)
-            input("Press Enter to continue...")
+            tasks_count = list_tasks(tasks,["Pending", "Completed", "Deleted"])
+            input(f"All missions total {tasks_count}. Press Enter to continue...")
+        else:
+            incorrectly_entered = True
+
+"""
+    Yasin Sinan Bey,
+        1 - Görev Ekleme fonksiyonu
+            Fonksiyon adı: add_task
+            Parametreler: tasks (list), tasks_file (str)
+                tasks : Task listesi
+                    task = {
+                        "id": task_id,
+                        "name": task_name,
+                        "status": "Pending", "Completed", "Deleted"
+                    }
+                tasks_file : Task listesinin kaydedileceği dosya adı
+            İşlev: Yeni bir görev ekler.
+            İşlem:
+                - Yeni bir görev oluşturulur ve tasks listesine eklenir.
+                - Görev name kullanıcı tarafından girilir.
+                - Yeni görevin id'si otomatik olarak atanır ve tasks listesindeki en büyük id'den bir fazla olacak şekilde oluşturulur.
+                - Yeni görevin status'u "Pending" olarak ayarlanır.
+                - task tasks listesine eklenir.
+                - tasks dosyaya kaydedilir. save_file fonksiyonu kullanılır. save_file(tasks_file, tasks) şeklinde kullanılır.
+                - Kullanıcıya görevin eklenmesi başarılı olduğu bilgisi verilir.
+            Dönüş Değeri: Boolean (True)or False kayıt başarılı ise True başarısız ise False döner.
+        2 - Görev Tamamlama fonksiyonu
+            Fonksiyon adı: complete_task
+            Parametreler: tasks (list), task_id (int), tasks_file (str)
+                tasks : Task listesi
+                task_id : Tamamlanacak görevin id'si
+                tasks_file : Task listesinin kaydedileceği dosya adı
+            işlev: Bir görevin tamamlanmasını sağlar.
+            İşlem:
+                - task_id ile tasks listesinde arama yapılır.
+                - Eğer task_id ile eşleşen bir görev bulunamazsa, "Task not found" mesajı gösterilir ve fonksiyon sonlanır.
+                - Eğer task_id ile eşleşen bir görev bulunursa, görevin status'u "Completed" olarak güncellenir.
+                - tasks dosyaya kaydedilir. save_file fonksiyonu kullanılır. save_file(tasks_file, tasks) şeklinde kullanılır.
+                - Kullanıcıya görevin tamamlanması başarılı olduğu bilgisi verilir.
+            Dönüş Değeri: Boolean (True)or False kayıt başarılı ise True başarısız ise False döner.
+    Kahraman Bey,
+        3 - Görev Silme fonksiyonu
+            Fonksiyon adı: delete_task
+            Parametreler: tasks (list), task_id (int), tasks_file (str)
+                tasks : Task Listesi
+                task_id : Silinecek görevin id'si
+                tasks_file : Task listesinin kaydedileceği dosya adı
+            İşlev: Bir görevin statusun deleted olarak güncellenmesini sağlar.
+            İşlem:
+                - task_id ile tasks listesinde arama yapılır.
+                - Eğer task_id ile eşleşen bir görev bulunamazsa, "Task not found" mesajı gösterilir ve fonksiyon sonlanır.
+                - Eğer task_id ile eşleşen bir görev bulunursa, görevin status'u "Deleted" olarak güncellenir.
+                - task_id değerine None atanır.
+                - task_id si silinen task_id den büyük olan görevlerin id'leri bir azaltılır.
+                - tasks dosyaya kaydedilir. save_file fonksiyonu kullanılır. save_file(tasks_file, tasks) şeklinde kullanılır.
+                - Kullanıcıya görevin silinmesi başarılı olduğu bilgisi verilir.
+            Dönüş Değeri: Boolean (True)or False kayıt başarılı ise True başarısız ise False döner.
+    Neslihan Hanım,
+        4 - Listeleme fonksiyonu
+            Fonksiyon adı: list_tasks
+            Parametreler: tasks (list), status (list)
+                tasks : Task listesi
+                status : Görevlerin listelenmek istenen durumu  örneğin status = ["Pending", "Completed"]
+            İşlev: Görevleri listeler ve bir grid formatında görüntüler.
+            İşlem:
+                - tasks listesi içerisinde status değeri status parametresinin içinde olan görevler filtrelenir.
+                - Filitrelenen görevler grid formatında görüntülenir.
+                - Görevlerin id, name ve status bilgileri görüntülenir.
+            Döüş Değeri: Listelediği görevlerin sayısını döner.
+    Mustafa Gundoğdu:
+        Ben bu fonksiyonları birleştiren ana menüyü oluşturuyorum.
+    
+    Herkes : HackerRank'teki tüm soruları çözüyor.
+"""

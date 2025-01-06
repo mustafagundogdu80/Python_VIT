@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Görev Ekleme Fonksiyonu",
+        "status": "Completed"
+    },
+    {
+        "id": 2,
+        "name": "Görev tamamlama Fonksiyonu",
+        "status": "Pending"
+    },
+    {
+        "id": 3,
+        "name": "Görev silme fonksiyonu",
+        "status": "Pending"
+    },
+    {
+        "id": null,
+        "name": "Tüm görevleri listeleme fonsiyonu",
+        "status": "Deleted"
+    },
+    {
+        "id": null,
+        "name": "Tamamlanan görevleri listleme Fonksiyonu",
+        "status": "Deleted"
+    },
+    {
+        "id": 4,
+        "name": "Listeleme fonksiyonu",
+        "status": "Pending"
+    },
+    {
+        "id": 5,
+        "name": "Program Menüsü",
+        "status": "Completed"
+    }
+]
