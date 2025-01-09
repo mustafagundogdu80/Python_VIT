@@ -1,0 +1,28 @@
+def add_task(tasks, tasks_file):
+    task_name = input("Enter the task name: ")
+    task_id = 1
+
+    for i in tasks:
+        if i["id"] > task_id:
+            task_id = i["id"] + 1
+
+    tasks.append({"id": task_id, "name": task_name, "status": "Pending"})
+
+    save_file(tasks_file, tasks)
+
+    print("Newstask added successfully")
+    return True
+
+
+def complete_task(tasks, task_id, tasks_file):
+    for i in tasks:
+        if i["id"] == task_id:
+            i["status"] = "completed"
+
+            save_file(tasks_file, tasks)
+
+            print("Task status is changed")
+            return True
+
+    print("Task is not found")
+    return False
