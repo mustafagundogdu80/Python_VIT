@@ -230,3 +230,5 @@ if __name__ == "__main__":
             input(f"All missions total {tasks_count}. Press Enter to continue...")
         else:
             incorrectly_entered = True
+    else:
+        print("Thank you for using the Task Manager. Goodbye!")
