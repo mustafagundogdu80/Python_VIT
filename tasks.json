@@ -7,7 +7,7 @@
     {
         "id": 2,
         "name": "Görev tamamlama Fonksiyonu",
-        "status": "Pending"
+        "status": "completed"
     },
     {
         "id": 3,
@@ -30,8 +30,23 @@
         "status": "Pending"
     },
     {
-        "id": 5,
+        "id": null,
         "name": "Program Menüsü",
-        "status": "Completed"
+        "status": "Deleted"
+    },
+    {
+        "id": null,
+        "name": "Deneme1",
+        "status": "Deleted"
+    },
+    {
+        "id": 5,
+        "name": "Deneme 2",
+        "status": "Pending"
+    },
+    {
+        "id": 6,
+        "name": "Deneme 3",
+        "status": "Pending"
     }
 ]
