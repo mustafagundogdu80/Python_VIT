@@ -84,6 +84,9 @@ def search_members(members):
         print("3. Phone number")
         print("4. Address")
         print("Q. Quit")
+        print("Now, choose your search criteria: ")
+        for i in search_dicttionary:
+            print(i," : ", search_dicttionary[i])
         Choose = input("Enter your choice: ")
         if Choose in ["Q", "q", "exit", "quit"]:
             break

@@ -112,7 +112,7 @@ if __name__ == '__main__':
                     try:
                         bt.search_books(books)
                     except Exception as e:
-                        print("An error occurred:", str(e))
+                        print("An error occurred:", e)
                     input("Press Enter to continue...")
                 else:
                     incorrectly_entered = True
@@ -143,19 +143,19 @@ if __name__ == '__main__':
                     try:
                         bt.list_books(books)
                     except Exception as e:
-                        print("An error occurred:", str(e))
+                        print("An error occurred:", e)
                     input("Press Enter to continue...")
                 elif choice == "2":
                     try:
                         bt.add_book(books, book_file)
                     except Exception as e:
-                        print("An error occurred:", str(e))
+                        print("An error occurred:", e)
                     input("Press Enter to continue...")
                 elif choice == "3":
                     try:
                         bt.search_books(books)
                     except Exception as e:
-                        print("An error occurred:", str(e))
+                        print("An error occurred:", e)
                     input("Press Enter to continue...")
                 elif choice == "4":
                     try:
