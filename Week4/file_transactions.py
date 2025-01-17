@@ -9,6 +9,7 @@ def save_file(file_path, data):
         # print(f"Data was successfully written to file: {file_path}")
     except Exception as e:
         print(f"Error: Data could not be written to file. Details: {e}")
+        raise e
         
 def load_file(file_path):   
     """
@@ -26,3 +27,4 @@ def load_file(file_path):
     except Exception as e:
         print(f"Error: File could not be read. Details: {e}")
         return []
+    

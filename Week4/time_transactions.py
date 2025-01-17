@@ -1,6 +1,6 @@
 # time_transactions.py
 import file_transactions, drawing
-import datetime
+from datetime import datetime, timedelta
 
 def book_lending(books, members, trancings, trancings_file, books_file):
     """
@@ -23,14 +23,21 @@ def book_lending(books, members, trancings, trancings_file, books_file):
                         "Yayinevi": book["Yayinevi"],
                         "Dil": book["Dil"],
                         "Fiyat": book["Fiyat"],
-                        "lending_date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                        "return_date": (datetime.datetime.now()+ datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+                        "lending_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "return_date": (datetime.now()+timedelta(days=14)).strftime("%Y-%m-%d")
                     }
                     trancings.append(trancing)
                     print("Book lending successfully.")
                     books.remove(book)
                     file_transactions.save_file(trancings_file, trancings)
-                    file_transactions.save_file(books_file, books)
+                    try:    
+                        file_transactions.save_file(books_file, books)
+                    except Exception as e:
+                        # If the book doesn't transfer, add the book back to the list of books
+                        trancings.remove(trancing)
+                        books.append(book)
+                        file_transactions.save_file(trancings_file, trancings)
+                        raise e
                     return trancings, books
             print("Member not found.")
             return trancings, books

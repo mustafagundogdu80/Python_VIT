@@ -147,7 +147,7 @@ if __name__ == '__main__':
                     input("Press Enter to continue...")
                 elif choice == "2":
                     try:
-                        bt.add_book(books, book_file)
+                        books = bt.add_book(books, book_file)
                     except Exception as e:
                         print("An error occurred:", e)
                     input("Press Enter to continue...")
@@ -159,7 +159,7 @@ if __name__ == '__main__':
                     input("Press Enter to continue...")
                 elif choice == "4":
                     try:
-                        bt.delete_book(books, book_file)
+                        books = bt.delete_book(books, book_file)
                     except Exception as e:
                         print("An error occurred:", e)
                     input("Press Enter to continue...")
