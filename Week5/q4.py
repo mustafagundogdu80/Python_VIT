@@ -31,6 +31,8 @@ class SportsCar(Vehicle):
 if __name__ == "__main__":
     off_road_vehicle = OffRoadVehicle("Jeep", "Grand Cherokee", 2022, True)
     sports_car = SportsCar("Ford", "Mustang", 1969, 250)
+    print("----------------------------------")
     print(f"Off-Road Vehicle - Make: {off_road_vehicle.make}, Model: {off_road_vehicle.model}, Year: {off_road_vehicle.year}, Four-Wheel Drive: {off_road_vehicle.four_wheel_drive}")
     print(f"Sports Car - Make: {sports_car.make}, Model: {sports_car.model}, Year: {sports_car.year}, Max Speed: {sports_car.max_speed} km/h")
+    print("----------------------------------")
     input()
