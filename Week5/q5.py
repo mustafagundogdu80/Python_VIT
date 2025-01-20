@@ -31,15 +31,34 @@ class Customer:
         print(f"TC Identification: {self.tc_identification}")
         print(f"Phone: {self.phone}")
 
-class Account:
-    def __init__(self, customer, account_number, balance=0):
-        self.customer = customer
+# class Account:
+#     def __init__(self, customer, account_number, balance=0):
+#         self.customer = customer
+#         self.account_number = account_number
+#         self.balance = balance
+    
+#     def deposit(self, amount):
+#         self.balance += amount
+#         print(f"{amount} € deposited to the account. New balance: {self.balance} €")
+
+#     def money_check(self, amount):
+#         if self.balance >= amount:
+#             self.balance -= amount
+#             print(f"{amount} € withdrawn from the account. New balance: {self.balance} €")
+#         else:
+#             print("Insufficient balance.")
+
+#     def display_balance(self):
+#             print(f"Account balance: {self.balance} €")
+class Account(Customer):
+    def __init__(self, name, surname, tc_identification, phone, account_number, balance=0):
+        super().__init__(name, surname, tc_identification, phone)
         self.account_number = account_number
         self.balance = balance
-    
+
     def deposit(self, amount):
         self.balance += amount
-        print(f"{amount} € deposited to the account. New balance: {self.balance} €")
+        print(f"{amount} € deposited to the account. New balance: {self.balance} €")    
 
     def money_check(self, amount):
         if self.balance >= amount:
@@ -52,10 +71,12 @@ class Account:
             print(f"Account balance: {self.balance} €")
 
 if __name__ == "__main__":
-    customer = Customer("Omer", "Sami", "12345678901", "1234567890")
-    account = Account(customer, "123123123", 1000)
+    # customer = Customer("Omer", "Sami", "12345678901", "1234567890")
+    # account = Account(customer, "123123123", 1000)
+    account = Account("Omer", "Sami", "12345678901", "1234567890", "123123123", 1000)
     print("----------------------------------")
-    customer.display_information()
+    # account.customer.display_information()
+    account.display_information()
     print("----------------------------------")
     account.display_balance()
     print("----------------------------------")
