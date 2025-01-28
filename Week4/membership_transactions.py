@@ -20,8 +20,8 @@ def add_member(members, members_file):
         "address": member_address
     }
     members.append(member)
-    print("Member added successfully.")
     file_transactions.save_file(members_file, members)
+    print("Member added successfully.")
     return members
 
 def update_member(members, members_file):
