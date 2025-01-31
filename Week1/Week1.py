@@ -142,21 +142,25 @@ Week 1
 # # This printing process is 4 lessons. and the lessons will be written one after the other.
 
 # List where courses information will be kept
-courses = list()
-for i in range(4):
-    course ={}
-    course["id"] = i+1
-    course["name"] = input("Please enter course name: ")
-    course["midterm"]= int(input("Please enter midterm exame grade: "))
-    course["final"] = int(input("Please enter final exame grade: "))
-    course["average"] = ((course["midterm"] * 0.4) + (course["final"] * 0.6))
-    if course["average"] < 50:
-        course["result"]="FAILED"
-    else:
-        course["result"] = "SUCCESSFUL"
-    courses.append(course)
+# courses = list()
+# for i in range(4):
+#     course ={}
+#     course["id"] = i+1
+#     course["name"] = input("Please enter course name: ")
+#     course["midterm"]= int(input("Please enter midterm exame grade: "))
+#     course["final"] = int(input("Please enter final exame grade: "))
+#     course["average"] = ((course["midterm"] * 0.4) + (course["final"] * 0.6))
+#     if course["average"] < 50:
+#         course["result"]="FAILED"
+#     else:
+#         course["result"] = "SUCCESSFUL"
+#     courses.append(course)
 
-for i in courses:
-    print(f"Student in {i["name"]} course: ",i["result"],"  Avarage:",i["average"])
+# for i in courses:
+#     print(f"Student in {i["name"]} course: ",i["result"],"  Avarage:",i["average"])
 
-print(courses)
+# print(courses)
+
+print(int(1.1))
+print(int(1.6))
+print(int(1.9))
