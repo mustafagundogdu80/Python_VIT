@@ -5,4 +5,4 @@ pyuic6 -x Application.ui -o Application.py
 pyuic6 -x Application2.ui -o Application2.py
 pyuic6 -x interviews.ui -o interviews.py
 pyuic6 -x Mentor.ui -o Mentor.py
-pyuic6 icons.grc -o icons_rc.py
+pyrcc6 icons.qrc -o icons_rc.py

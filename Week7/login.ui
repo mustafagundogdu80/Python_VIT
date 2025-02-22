@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UserDialog</class>
- <widget class="QDialog" name="UserDialog">
+ <class>ud_login</class>
+ <widget class="QDialog" name="ud_login">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
+    <width>353</width>
     <height>301</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>353</width>
+    <height>301</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>353</width>
+    <height>301</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>353</width>
+    <height>301</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -24,10 +51,13 @@
   <property name="windowIcon">
    <iconset theme="QIcon::ThemeIcon::AddressBookNew"/>
   </property>
+  <property name="locale">
+   <locale language="English" country="Netherlands"/>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>2</x>
      <y>110</y>
      <width>351</width>
      <height>191</height>
@@ -39,7 +69,7 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="QGroupBox" name="gbUserLogin">
+   <widget class="QGroupBox" name="groupbox_user_login">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -54,7 +84,7 @@
     <property name="title">
      <string>User Login</string>
     </property>
-    <widget class="QLabel" name="lUserName">
+    <widget class="QLabel" name="label_user_name">
      <property name="geometry">
       <rect>
        <x>11</x>
@@ -82,7 +112,7 @@
       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="leUserName">
+    <widget class="QLineEdit" name="lineedit_user_login">
      <property name="geometry">
       <rect>
        <x>122</x>
@@ -93,8 +123,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
-       <italic>true</italic>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
        <bold>false</bold>
        <kerning>true</kerning>
       </font>
@@ -108,8 +138,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="placeholderText">
+      <string>User Name</string>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lePassword">
+    <widget class="QLineEdit" name="lineedit_password">
      <property name="geometry">
       <rect>
        <x>122</x>
@@ -120,8 +153,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
-       <italic>true</italic>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
        <kerning>true</kerning>
        <fontweight>DemiBold</fontweight>
       </font>
@@ -129,14 +162,26 @@
      <property name="toolTipDuration">
       <number>1</number>
      </property>
+     <property name="inputMethodHints">
+      <set>Qt::InputMethodHint::ImhDialableCharactersOnly|Qt::InputMethodHint::ImhHiddenText|Qt::InputMethodHint::ImhNoAutoUppercase|Qt::InputMethodHint::ImhNoPredictiveText|Qt::InputMethodHint::ImhSensitiveData</set>
+     </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::EchoMode::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Password</string>
+     </property>
+     <property name="cursorMoveStyle">
+      <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
      </property>
      <property name="clearButtonEnabled">
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="lPassword">
+    <widget class="QLabel" name="label_password">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -164,7 +209,7 @@
       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="lLanguage">
+    <widget class="QLabel" name="label_language">
      <property name="geometry">
       <rect>
        <x>92</x>
@@ -175,7 +220,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>8</pointsize>
+       <pointsize>9</pointsize>
        <italic>false</italic>
        <bold>false</bold>
        <kerning>true</kerning>
@@ -194,9 +239,9 @@
     <widget class="Line" name="line">
      <property name="geometry">
       <rect>
-       <x>19</x>
+       <x>9</x>
        <y>90</y>
-       <width>301</width>
+       <width>311</width>
        <height>20</height>
       </rect>
      </property>
@@ -204,7 +249,7 @@
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QComboBox" name="cbLanguage">
+    <widget class="QComboBox" name="combobox_language">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -237,15 +282,15 @@
       </property>
      </item>
     </widget>
-    <zorder>leUserName</zorder>
-    <zorder>lUserName</zorder>
-    <zorder>lePassword</zorder>
-    <zorder>lPassword</zorder>
-    <zorder>lLanguage</zorder>
+    <zorder>lineedit_user_login</zorder>
+    <zorder>label_user_name</zorder>
+    <zorder>lineedit_password</zorder>
+    <zorder>label_password</zorder>
+    <zorder>label_language</zorder>
     <zorder>line</zorder>
-    <zorder>cbLanguage</zorder>
+    <zorder>combobox_language</zorder>
    </widget>
-   <widget class="QPushButton" name="ptLogin">
+   <widget class="QPushButton" name="pushbutton_login">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -253,6 +298,23 @@
       <width>131</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover {
+    background-color: rgb(180, 180, 180);
+	font-size: 13px;
+    border: bold;
+}
+QPushButton:pressed {
+    background-color:rgb(150, 150, 150);
+	font-size: 13px;
+    border: bold;
+}
+
+</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -264,7 +326,7 @@
      <string>Return</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pbExit">
+   <widget class="QPushButton" name="pushbutton_exit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -272,6 +334,22 @@
       <width>131</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover {
+    background-color: rgb(180, 180, 180);
+	font-size: 13px;
+    border: bold;
+}
+QPushButton:pressed {
+    background-color:rgb(150, 150, 150);
+	font-size: 13px;
+    border: bold;
+}
+</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -284,10 +362,10 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QFrame" name="frameIcon">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>2</x>
      <y>4</y>
      <width>351</width>
      <height>101</height>
@@ -299,20 +377,26 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_icon">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>341</width>
-      <height>101</height>
+      <x>7</x>
+      <y>4</y>
+      <width>331</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons.grc">:/icons/WeRHere2.png</pixmap>
+     <pixmap>icons/WeRHere2.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
