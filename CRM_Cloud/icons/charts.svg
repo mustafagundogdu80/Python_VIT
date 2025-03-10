@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2048px" height="2048px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2048 2048"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil5 {fill:#006064}
+    .fil2 {fill:#0097A7}
+    .fil7 {fill:#5C6BC0}
+    .fil1 {fill:#7CB342}
+    .fil3 {fill:#F4511E}
+    .fil4 {fill:#FF5252}
+    .fil6 {fill:#FF7043}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="2048" height="2048"/>
+  <rect class="fil0" x="256.002" y="257.156" width="1535.98" height="1535.98"/>
+  <rect class="fil0" x="256.002" y="257.156" width="1535.98" height="1535.98"/>
+  <polygon class="fil1" points="1792,1721.3 327.499,1721.3 327.499,254.864 255.999,254.864 255.999,1793.14 1791.98,1793.14 "/>
+  <polygon class="fil2" points="417.415,1398.68 444.911,1415.31 536.196,1264.81 649.506,1264.81 649.506,1250.39 767.764,1361.22 767.764,1467.12 911.863,1467.12 911.863,1322.82 879.617,1322.82 984.992,940.152 991.218,940.152 1087.4,1222.59 1056.16,1222.59 1056.16,1366.94 1200.51,1366.94 1200.51,1259.78 1302.65,1185.2 1302.65,1192.61 1406.56,1192.61 1494.56,1350.82 1480.9,1350.82 1480.9,1495.1 1625,1495.1 1625,1350.82 1576.12,1350.82 1629.96,809.964 1693.18,809.964 1693.18,665.667 1549.15,665.667 1549.15,809.964 1597.7,809.964 1544.2,1350.82 1531.24,1350.82 1443.52,1192.61 1446.94,1192.61 1446.94,1048.26 1302.65,1048.26 1302.65,1145.52 1197.02,1222.59 1121.35,1222.59 1024.92,940.152 1056.16,940.152 1056.16,795.873 911.863,795.873 911.863,940.152 951.792,940.152 846.363,1322.82 773.738,1322.82 649.506,1206.27 649.506,1120.44 505.407,1120.44 505.407,1253.88 "/>
+  <rect class="fil3" x="906.121" y="791.729" width="151.948" height="152.232"/>
+  <rect class="fil4" x="505.314" y="1120" width="151.948" height="152.232"/>
+  <rect class="fil5" x="1300.03" y="1043.88" width="151.948" height="152.232"/>
+  <rect class="fil5" x="1056" y="1216" width="151.948" height="152.232"/>
+  <rect class="fil3" x="768.001" y="1319.77" width="151.948" height="152.232"/>
+  <rect class="fil6" x="1480.05" y="1351.77" width="151.948" height="152.232"/>
+  <rect class="fil7" x="1544.05" y="661.121" width="151.948" height="152.232"/>
+ </g>
+</svg>

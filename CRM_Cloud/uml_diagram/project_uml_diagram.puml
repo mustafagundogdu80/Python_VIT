@@ -1,0 +1,85 @@
+@startuml
+title WeRHere Project - Class Diagram
+
+class LoginWindow {
+    +setupUi()
+    +login()
+    +exit_app()
+}
+
+class MainMenuWindow {
+    +setupUi()
+    +setupWindow()
+    +open_applications()
+    +open_interviews()
+    +open_mentor_meeting()
+    +open_admin_menu()
+    +open_login()
+    +exit_app()
+}
+
+class ApplicationsWindow {
+    +setupUi()
+    +load_excel_data()
+    +initialize_table()
+    +search_applications()
+    +show_all_applications()
+    +show_mentor_assigned()
+    +show_mentor_unassigned()
+    +show_duplicates()
+    +handle_combo_selection()
+    +return_preferences()
+    +exit_app()
+}
+
+class InterviewsWindow {
+    +setupUi()
+    +interviews_find()
+    +submitted_projects()
+    +incoming_projects()
+    +fill_table()
+    +return_preferences()
+    +exit_app()
+}
+
+class MentorMeetingWindow {
+    +setupUi()
+    +mentor_find()
+    +mentor_find_status()
+    +return_preferences()
+    +exit_app()
+}
+
+class AdminMenuWindow {
+    +setupUi()
+    +open_action_control()
+    +open_send_mail()
+    +open_preferences()
+    +exit_app()
+}
+
+class GoogleDriveFileManager {
+    +getExcelFile()
+}
+
+class GoogleCalendarManager {
+    +get_calendar_events()
+}
+
+class MailSender {
+    +send_appointment_email()
+}
+
+LoginWindow --> MainMenuWindow
+MainMenuWindow --> ApplicationsWindow
+MainMenuWindow --> InterviewsWindow
+MainMenuWindow --> MentorMeetingWindow
+MainMenuWindow --> AdminMenuWindow
+
+ApplicationsWindow --> GoogleDriveFileManager
+InterviewsWindow --> GoogleDriveFileManager
+MentorMeetingWindow --> GoogleDriveFileManager
+AdminMenuWindow --> GoogleCalendarManager
+AdminMenuWindow --> MailSender
+
+@enduml
