@@ -93,6 +93,7 @@ def Crate_Tables():
             calismakistegi character varying(100) COLLATE pg_catalog."default",
             nedenkatilmakistiyor text COLLATE pg_catalog."default",
             basvurudonemi character varying(5) COLLATE pg_catalog."default",
+            mentorgorusmesi character varying(10) COLLATE pg_catalog."default"
             CONSTRAINT basvurular_pkey PRIMARY KEY (basvuruid),
             CONSTRAINT "FK_kusiyerid" FOREIGN KEY (kursiyerid)
                 REFERENCES public.kursiyerler (kursiyerid) MATCH SIMPLE
@@ -196,8 +197,8 @@ def Convert_data_basvurular():
     db_obj = DatabaseConnection()
     for row in range(rows):
         # value = str(write_data.iat[row, col])
-        query = "INSERT INTO basvurular (kursiyerid, zamandamgasi, suankidurum, itphegitimkatilmak, ekonomikdurum, dilkursunadevam, ingilizceseviye, "
-        query += "hollandacaseviye, baskigoruyor, bootcampbitirdi, onlineitkursu, ittecrube, projedahil, calismakistegi, nedenkatilmakistiyor, basvurudonemi) VALUES ("
+        query = "INSERT INTO basvurular (kursiyerid, zamandamgasi, suankidurum, itphegitimkatilmak, ekonomikdurum, dilkursunadevam, ingilizceseviye, hollandacaseviye, "
+        query += "baskigoruyor, bootcampbitirdi, onlineitkursu, ittecrube, projedahil, calismakistegi, nedenkatilmakistiyor, basvurudonemi, mentorgorusmesi) VALUES ("
         kursiyerid = db_obj.db_select("SELECT MIN(kursiyerid) FROM kursiyerler WHERE adsoyad = '" + str(write_data.iat[row, 1]) + "';")
         if  kursiyerid == None:
             print("Kursiyer not found!")
@@ -217,7 +218,8 @@ def Convert_data_basvurular():
         query += "True"+ ", " if write_data.iat[row, 16] == "Evet" else "False" + ", "
         query += "'" + str(write_data.iat[row, 17]) + "', "
         query += "'" + str(write_data.iat[row, 18]) + "', "
-        query += "'" + str(write_data.iat[row, 21]) + "');"
+        query += "'" + str(write_data.iat[row, 21]) + "',"
+        query += "'" + str(write_data.iat[row, 20]) + "');"
         print(query)
         db_obj.db_executer(query)
         print(db_obj.message)

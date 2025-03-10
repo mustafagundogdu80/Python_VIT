@@ -172,170 +172,106 @@ class ApplicationsWindow(QtWidgets.QMainWindow, Ui_ApplicationWindow):
         # ComboBox için işlevler
         self.CB_combo_box.currentIndexChanged.connect(self.handle_combo_selection)
 
-
-    def initialize_table(self):
-
-
-        self.tableWidget.setRowCount(len(self.df))
-
-        # **Verileri tabloya doldur**
-        for row in range(len(self.df)):
-            for col in range(len(self.df[row])):  # Tüm sütunlar için
-                value = str(self.df.iloc[row, col])  # Satır ve sütundaki değeri al
-                self.tableWidget.setItem(row, col, QtWidgets.QTableWidgetItem(value))  # Tabloya ekle
-
-
-    # 1. Arama işlevi
+    # Search Applications
     def search_applications(self):
-        search_text = self.LE_search_input.text().strip().lower()
-        if not search_text:
-            return
-
-        # Arama filtresi
-        mask = self.df['Adınız Soyadınız'].str.lower().str.contains(search_text, na=False)
-        filtered_df = self.df[mask]
-
-        # **Tabloyu temizle**
-        self.tableWidget.setRowCount(0)
+        self.DataObject = DatabaseConnection()
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        if self.LE_search_input.text() != "":
+            query += "WHERE adsoyad LIKE '%" + self.LE_search_input.text() + "%' "
+        query += "ORDER BY b.kursiyerid "
+        write_data = self.DataObject.db_select(query)
         
-        # **Yeni sütunları belirle ve tablo başlıklarını güncelle**
-        self.tableWidget.setColumnCount(len(filtered_df.columns))
-        self.tableWidget.setHorizontalHeaderLabels(filtered_df.columns)
+        # Data add to table
+        self.write_table(write_data) 
 
-        # **Yeni verileri tabloya ekle**
-        for row_index, row_data in filtered_df.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
-
-
-    # 2. Tüm Başvurular
+    # All Applications
     def show_all_applications(self):
         self.DataObject = DatabaseConnection()
-        query = "SELECT k.adsoyad, projegonderilistarihi, projeningelistarihi FROM projetakiptablosu as p INNER JOIN kursiyerler k ON p.kursiyerid = k.kursiyerid "
-        if self.lineEdit.text() != "":
-            query += "WHERE adsoyad LIKE '%" + self.lineEdit.text() + "%' "
-        query += "ORDER BY p.kursiyerid"
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        query += "ORDER BY b.kursiyerid "
         write_data = self.DataObject.db_select(query)
+        
+        # Data add to table
+        self.write_table(write_data) 
 
 
-
-        # **Verileri tabloya ekle**
-        for row_index, row_data in filtered_df.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
-
-       
-       
-
-    # 3. Mentor Atananlar
+    # Mentor Assigned
     def show_mentor_assigned(self):
-        filtered_df = self.df[self.df['Mentor gorusmesi'].str.strip().str.upper() == 'OK']
+        self.DataObject = DatabaseConnection()
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        query += "WHERE mentorgorusmesi = 'OK' "
+        query += "ORDER BY b.kursiyerid "        
+        write_data = self.DataObject.db_select(query)
         
-        # Tabloyu temizle
-        self.tableWidget.setRowCount(0)
-        
-        # Yeni başlıkları ayarla
-        self.tableWidget.setColumnCount(len(filtered_df.columns))
-        self.tableWidget.setHorizontalHeaderLabels(filtered_df.columns.tolist())
-        
-        # Yeni verileri tabloya ekle
-        for row_index, row_data in filtered_df.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-            
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
+        # Data add to table
+        self.write_table(write_data) 
 
-    # 4. Mentor Atanmayanlar
+    # Mentor Unassigned
     def show_mentor_unassigned(self):
-        filtered_df = self.df[self.df['Mentor gorusmesi'].str.strip().str.upper() != 'OK']
-        
-        # Tabloyu temizle
-        self.tableWidget.setRowCount(0)
-        
-        # Yeni başlıkları ayarla
-        self.tableWidget.setColumnCount(len(filtered_df.columns))
-        self.tableWidget.setHorizontalHeaderLabels(filtered_df.columns.tolist())
-        
-        # Yeni verileri tabloya ekle
-        for row_index, row_data in filtered_df.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-            
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
+        self.DataObject = DatabaseConnection()
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        query += "WHERE mentorgorusmesi <> 'OK' "
+        query += "ORDER BY b.kursiyerid "
+        write_data = self.DataObject.db_select(query)
+        # Data add to table
+        self.write_table(write_data) 
 
-    
+    # Duplicates
     def show_duplicates(self):
-        # Aynı isim-soyisim veya aynı mail adresine sahip kayıtları bul
-        mask = self.df.duplicated(subset='Adınız Soyadınız', keep=False) | self.df.duplicated(subset='Mail adresiniz', keep=False)
-        duplicates = self.df[mask]
+        self.DataObject = DatabaseConnection()
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        query += "WHERE b.kursiyerid IN (SELECT kursiyerid FROM basvurular GROUP BY kursiyerid HAVING COUNT(kursiyerid) > 1) "
+        query += "ORDER BY b.kursiyerid "
+        write_data = self.DataObject.db_select(query)
         
-        # Tabloyu temizle
-        self.tableWidget.setRowCount(0)
-        
-        # Yeni başlıkları ayarla
-        self.tableWidget.setColumnCount(len(duplicates.columns))
-        self.tableWidget.setHorizontalHeaderLabels(duplicates.columns.tolist())
-        
-        # Yeni verileri tabloya ekle
-        for row_index, row_data in duplicates.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-            
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
+        # Data add to table
+        self.write_table(write_data) 
 
     # 6. ComboBox
 
     def handle_combo_selection(self):
+        self.DataObject = DatabaseConnection()
+        query = "SELECT k.adsoyad , k.mailadresi, k.telefonnumarasi, b.zamandamgasi, b.suankidurum,itphegitimkatilmak , ekonomikdurum, ingilizceseviye, hollandacaseviye, "
+        query += "onlineitkursu, ittecrube, calismakistegi, nedenkatilmakistiyor, mentorgorusmesi, basvurudonemi "
+        query += "FROM basvurular as b INNER JOIN kursiyerler k ON b.kursiyerid = k.kursiyerid "
+        
         selection = self.CB_combo_box.currentText()
 
         # 'Previous VIT Control' seçildiğinde vit1 ve VIT2 olanları yazdır
         if selection == "    Previous VIT Control":
-            filtered_df = self.df[self.df['Basvuru Donemi'].isin(['VIT1', 'VIT2'])]
-        
-        
+            query += "WHERE basvurudonemi IN ('VIT1', 'VIT2') "
         elif selection == "      Different Records":
-             # 'Adınız Soyadınız' ve 'Basvuru Donemi' sütunlarını kontrol et
-            vit1_vit2_names = self.df[self.df['Basvuru Donemi'].isin(['VIT1', 'VIT2'])]['Adınız Soyadınız'].unique()
-
-            # 'Adınız Soyadınız' sütununda, 'VIT1' ve 'VIT2' olmayanları filtrele
-            filtered_df = self.df[~self.df['Adınız Soyadınız'].isin(vit1_vit2_names) | (self.df['Basvuru Donemi'] == 'VIT3')]
-            # 'Applying Filter' seçildiğinde, mükerrer isimler olmadan filtreleme işlemi yap
+              query += "WHERE b.kursiyerid IN (SELECT kursiyerid FROM basvurular WHERE basvurudonemi NOT IN ('VIT1', 'VIT2') AND basvurudonemi = 'VIT3') "
         elif selection == "        Applying Filter":
-            # 'Adınız Soyadınız' sütununda benzersiz olanları al
-            filtered_df = self.df.drop_duplicates(subset=['Adınız Soyadınız'])
-        # Tabloyu temizle
-        self.tableWidget.setRowCount(0)
-
-        # Yeni başlıkları ayarla
-        self.tableWidget.setColumnCount(len(filtered_df.columns))
-        self.tableWidget.setHorizontalHeaderLabels(filtered_df.columns.tolist())
-
-        # Yeni verileri tabloya ekle
-        for row_index, row_data in filtered_df.iterrows():
-            row_position = self.tableWidget.rowCount()
-            self.tableWidget.insertRow(row_position)  # Yeni satır ekle
-
-            for col_index, value in enumerate(row_data):
-                item = QtWidgets.QTableWidgetItem(str(value))
-                self.tableWidget.setItem(row_position, col_index, item)
+            query += "WHERE b.kursiyerid NOT IN (SELECT kursiyerid FROM basvurular GROUP BY kursiyerid HAVING COUNT(kursiyerid) > 1) "
+        query += "ORDER BY b.kursiyerid "
+        write_data = self.DataObject.db_select(query)
         
-        
+        # Data add to table
+        self.write_table(write_data)
 
-
+    def write_table(self, data):
+        self.tableWidget.setRowCount(len(data))
+        for row in range(len(data)):
+            for col in range(len(data[row])):
+                value = str(data[row][col])
+                if value == "True":
+                    value = "Yes"
+                elif value == "False":
+                    value = "No"
+                elif value == "Null":
+                    value = ""
+                self.tableWidget.setItem(row, col, QtWidgets.QTableWidgetItem(value))
 
     def return_preferences(self):
         app.widgets.resize(600,500)
@@ -391,8 +327,14 @@ class InterviewsWindow(Ui_interviews):
 
         for row in range(len(data)):
             for col in range(len(data[row])):
-                value = str(data[row][col])
-                self.tw_interviews.setItem(row, col,QtWidgets.QTableWidgetItem(value))
+                if col == 0:
+                    value = str(data[row][col]).split(" ")[0]
+                    self.tw_interviews.setItem(row, col, QtWidgets.QTableWidgetItem(value))
+                    value = str(data[row][col]).split(" ")[1]
+                    self.tw_interviews.setItem(row, col+1, QtWidgets.QTableWidgetItem(value))
+                else :    
+                    value = str(data[row][col])
+                    self.tw_interviews.setItem(row, col+1, QtWidgets.QTableWidgetItem(value))
 
     def return_preferences(self):
         app.widgets.resize(600,500)

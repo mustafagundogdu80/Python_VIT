@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'Application2.1.ui'
+# Form implementation generated from reading ui file 'Application3.ui'
 #
 # Created by: PyQt6 UI code generator 6.8.0
 #
@@ -10,24 +10,27 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_ApplicationWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.setWindowModality(QtCore.Qt.WindowModality.NonModal)
-        MainWindow.setEnabled(True)
-        MainWindow.resize(1044, 812)
+    def setupUi(self, Ui_ApplicationWindow):
+        Ui_ApplicationWindow.setObjectName("Ui_ApplicationWindow")
+        Ui_ApplicationWindow.setWindowModality(QtCore.Qt.WindowModality.NonModal)
+        Ui_ApplicationWindow.setEnabled(True)
+        Ui_ApplicationWindow.resize(1136, 851)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setSizeIncrement(QtCore.QSize(0, 0))
-        MainWindow.setBaseSize(QtCore.QSize(1228, 805))
+        sizePolicy.setHeightForWidth(Ui_ApplicationWindow.sizePolicy().hasHeightForWidth())
+        Ui_ApplicationWindow.setSizePolicy(sizePolicy)
+        Ui_ApplicationWindow.setMinimumSize(QtCore.QSize(0, 0))
+        Ui_ApplicationWindow.setSizeIncrement(QtCore.QSize(0, 0))
+        Ui_ApplicationWindow.setBaseSize(QtCore.QSize(1228, 805))
         font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
         font.setPointSize(11)
-        MainWindow.setFont(font)
-        MainWindow.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        MainWindow.setStyleSheet("QWidget {\n"
+        font.setBold(False)
+        font.setItalic(False)
+        Ui_ApplicationWindow.setFont(font)
+        Ui_ApplicationWindow.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        Ui_ApplicationWindow.setStyleSheet("QWidget {\n"
 "    font: 11pt \"MS Shell Dlg 2\";\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, \n"
 "        stop:0 rgba(173, 216, 230, 255), \n"
@@ -35,7 +38,7 @@ class Ui_ApplicationWindow(object):
 "};\n"
 "\n"
 "")
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget = QtWidgets.QWidget(parent=Ui_ApplicationWindow)
         self.centralwidget.setEnabled(True)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -67,7 +70,10 @@ class Ui_ApplicationWindow(object):
         self.W_widget.setMinimumSize(QtCore.QSize(0, 0))
         self.W_widget.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
         font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
         self.W_widget.setFont(font)
         self.W_widget.setAcceptDrops(False)
         self.W_widget.setStyleSheet("border: 2px solid #ccc;\n"
@@ -89,7 +95,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_duplicate_record_button.setFont(font)
         self.PB_duplicate_record_button.setStyleSheet("QPushButton {\n"
 "    \n"
@@ -118,7 +123,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_all_applications_button.setFont(font)
         self.PB_all_applications_button.setStyleSheet("QPushButton {\n"
 "    \n"
@@ -147,7 +151,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.LE_search_input.setFont(font)
         self.LE_search_input.setStyleSheet("QLineEdit {\n"
 "    padding: 10px;\n"
@@ -174,7 +177,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_search_button.setFont(font)
         self.PB_search_button.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.PB_search_button.setStyleSheet("QPushButton {\n"
@@ -204,7 +206,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_mentor_meeting_defined_button.setFont(font)
         self.PB_mentor_meeting_defined_button.setStyleSheet("QPushButton {\n"
 "    \n"
@@ -233,7 +234,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.CB_combo_box.setFont(font)
         self.CB_combo_box.setStyleSheet("QComboBox {\n"
 "    padding: 10px;\n"
@@ -268,7 +268,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_mentor_interview_undefined_button.setFont(font)
         self.PB_mentor_interview_undefined_button.setStyleSheet("QPushButton {\n"
 "    \n"
@@ -301,7 +300,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.tableWidget.setFont(font)
         self.tableWidget.setStyleSheet("QTableWidget {\n"
 "    \n"
@@ -320,7 +318,7 @@ class Ui_ApplicationWindow(object):
 "font: 11pt \"MS Shell Dlg 2\";\n"
 "}\n"
 "")
-        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setColumnCount(15)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
@@ -334,15 +332,34 @@ class Ui_ApplicationWindow(object):
         item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(9, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(10, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(11, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(12, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(13, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setPointSize(11)
         item.setFont(font)
-        self.tableWidget.setHorizontalHeaderItem(3, item)
+        self.tableWidget.setHorizontalHeaderItem(14, item)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(255)
         self.verticalLayout_2.addWidget(self.tableWidget)
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
@@ -359,7 +376,6 @@ class Ui_ApplicationWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.PB_return_to_preferences_screen_button.setFont(font)
         self.PB_return_to_preferences_screen_button.setStyleSheet("QPushButton {\n"
 "    \n"
@@ -403,46 +419,68 @@ class Ui_ApplicationWindow(object):
         self.PB_EXIT.setObjectName("PB_EXIT")
         self.horizontalLayout.addWidget(self.PB_EXIT)
         self.verticalLayout_2.addWidget(self.frame)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
+        Ui_ApplicationWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(parent=Ui_ApplicationWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        Ui_ApplicationWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Ui_ApplicationWindow)
+        QtCore.QMetaObject.connectSlotsByName(Ui_ApplicationWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Ui_ApplicationWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "APPLICATIONS"))
-        self.label.setText(_translate("MainWindow", "APPLICATIONS"))
-        self.PB_duplicate_record_button.setText(_translate("MainWindow", "Duplicate Record"))
-        self.PB_all_applications_button.setText(_translate("MainWindow", "All Applications"))
-        self.LE_search_input.setPlaceholderText(_translate("MainWindow", " Write a name or surname..."))
-        self.PB_search_button.setText(_translate("MainWindow", "Search"))
-        self.PB_mentor_meeting_defined_button.setText(_translate("MainWindow", "Mentor Interview Defined"))
-        self.CB_combo_box.setCurrentText(_translate("MainWindow", "   Please make a choice..."))
-        self.CB_combo_box.setItemText(0, _translate("MainWindow", "   Please make a choice..."))
-        self.CB_combo_box.setItemText(1, _translate("MainWindow", "    Previous VIT Control"))
-        self.CB_combo_box.setItemText(2, _translate("MainWindow", "      Different Records"))
-        self.CB_combo_box.setItemText(3, _translate("MainWindow", "        Applying Filter"))
-        self.PB_mentor_interview_undefined_button.setText(_translate("MainWindow", "Mentor Interview Undefined"))
+        Ui_ApplicationWindow.setWindowTitle(_translate("Ui_ApplicationWindow", "APPLICATIONS"))
+        self.label.setText(_translate("Ui_ApplicationWindow", "APPLICATIONS"))
+        self.PB_duplicate_record_button.setText(_translate("Ui_ApplicationWindow", "Duplicate Record"))
+        self.PB_all_applications_button.setText(_translate("Ui_ApplicationWindow", "All Applications"))
+        self.LE_search_input.setPlaceholderText(_translate("Ui_ApplicationWindow", " Write a name or surname..."))
+        self.PB_search_button.setText(_translate("Ui_ApplicationWindow", "Search"))
+        self.PB_mentor_meeting_defined_button.setText(_translate("Ui_ApplicationWindow", "Mentor Interview Defined"))
+        self.CB_combo_box.setCurrentText(_translate("Ui_ApplicationWindow", "   Please make a choice..."))
+        self.CB_combo_box.setItemText(0, _translate("Ui_ApplicationWindow", "   Please make a choice..."))
+        self.CB_combo_box.setItemText(1, _translate("Ui_ApplicationWindow", "    Previous VIT Control"))
+        self.CB_combo_box.setItemText(2, _translate("Ui_ApplicationWindow", "      Different Records"))
+        self.CB_combo_box.setItemText(3, _translate("Ui_ApplicationWindow", "        Applying Filter"))
+        self.PB_mentor_interview_undefined_button.setText(_translate("Ui_ApplicationWindow", "Mentor Interview Undefined"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Name Surname"))
+        item.setText(_translate("Ui_ApplicationWindow", "Name Surname"))
         item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Email"))
+        item.setText(_translate("Ui_ApplicationWindow", "Email"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Mentor Situation"))
+        item.setText(_translate("Ui_ApplicationWindow", "Telephone"))
         item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "VIT"))
-        self.PB_return_to_preferences_screen_button.setText(_translate("MainWindow", "Return to Preferences Screen"))
-        self.PB_EXIT.setText(_translate("MainWindow", "EXIT"))
+        item.setText(_translate("Ui_ApplicationWindow", "Application Date Time"))
+        item = self.tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("Ui_ApplicationWindow", "Current Situation"))
+        item = self.tableWidget.horizontalHeaderItem(5)
+        item.setText(_translate("Ui_ApplicationWindow", "ITPH Training Request"))
+        item = self.tableWidget.horizontalHeaderItem(6)
+        item.setText(_translate("Ui_ApplicationWindow", "Economic Situation"))
+        item = self.tableWidget.horizontalHeaderItem(7)
+        item.setText(_translate("Ui_ApplicationWindow", "English Level"))
+        item = self.tableWidget.horizontalHeaderItem(8)
+        item.setText(_translate("Ui_ApplicationWindow", "Dutch Level"))
+        item = self.tableWidget.horizontalHeaderItem(9)
+        item.setText(_translate("Ui_ApplicationWindow", "Online Course"))
+        item = self.tableWidget.horizontalHeaderItem(10)
+        item.setText(_translate("Ui_ApplicationWindow", "IT Experience"))
+        item = self.tableWidget.horizontalHeaderItem(11)
+        item.setText(_translate("Ui_ApplicationWindow", "Willingness to Work"))
+        item = self.tableWidget.horizontalHeaderItem(12)
+        item.setText(_translate("Ui_ApplicationWindow", "Why Want to Join"))
+        item = self.tableWidget.horizontalHeaderItem(13)
+        item.setText(_translate("Ui_ApplicationWindow", "Mentor"))
+        item = self.tableWidget.horizontalHeaderItem(14)
+        item.setText(_translate("Ui_ApplicationWindow", "VIT"))
+        self.PB_return_to_preferences_screen_button.setText(_translate("Ui_ApplicationWindow", "Return to Preferences Screen"))
+        self.PB_EXIT.setText(_translate("Ui_ApplicationWindow", "EXIT"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Ui_ApplicationWindow = QtWidgets.QMainWindow()
+    ui = Ui_Ui_ApplicationWindow()
+    ui.setupUi(Ui_ApplicationWindow)
+    Ui_ApplicationWindow.show()
     sys.exit(app.exec())
